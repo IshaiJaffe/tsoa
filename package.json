@@ -1,5 +1,5 @@
 {
-  "name": "tsoa",
+  "name": "bablic-tsoa",
   "description": "Build swagger-compliant REST APIs using TypeScript and Node",
   "version": "2.1.4",
   "main": "./dist/index.js",

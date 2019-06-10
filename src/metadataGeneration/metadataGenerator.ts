@@ -13,8 +13,9 @@ export class MetadataGenerator {
 
   public IsExportedNode(node: ts.Node) { return true; }
 
-  constructor(entryFile: string, compilerOptions?: ts.CompilerOptions, private readonly ignorePaths?: string[]) {
-    this.program = ts.createProgram([entryFile], compilerOptions || {});
+  constructor(entryFile: string, compilerOptions?: ts.CompilerOptions, private readonly ignorePaths?: string[], typePaths?: string[]) {
+    typePaths = typePaths || [];
+    this.program = ts.createProgram([...typePaths, entryFile], compilerOptions || {});
     this.typeChecker = this.program.getTypeChecker();
     MetadataGenerator.current = this;
   }

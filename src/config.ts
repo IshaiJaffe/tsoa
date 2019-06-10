@@ -24,6 +24,7 @@ export interface Config {
    * @memberof RoutesConfig
    */
   compilerOptions?: ts.CompilerOptions;
+  typePaths?: string[];
 }
 
 export interface SwaggerConfig {
