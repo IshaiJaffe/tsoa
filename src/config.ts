@@ -25,6 +25,7 @@ export interface Config {
    */
   compilerOptions?: ts.CompilerOptions;
   typePaths?: string[];
+  tsconfigFile?: string;
 }
 
 export interface SwaggerConfig {

@@ -184,7 +184,7 @@ function routeGenerator(args) {
     const compilerOptions = validateCompilerOptions(config.compilerOptions);
     const routesConfig = validateRoutesConfig(config.routes);
     const metadata = new MetadataGenerator(routesConfig.entryFile, compilerOptions, config.ignore, config.typePaths).Generate();
-    const routeGenerator = new RouteGenerator(metadata, routesConfig);
+    const routeGenerator = new RouteGenerator(metadata, routesConfig, config.tsconfigFile);
 
     let pathTransformer;
     let template;

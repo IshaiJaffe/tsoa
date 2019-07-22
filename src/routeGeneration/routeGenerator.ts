@@ -12,6 +12,7 @@ export class RouteGenerator {
   private tsfmtConfig = {
     editorconfig: true,
     replace: true,
+    tsconfigFile: "",
     tsconfig: {
       newLine: 'LF',
     },
@@ -21,7 +22,11 @@ export class RouteGenerator {
     vscode: true,
   };
 
-  constructor(private readonly metadata: Tsoa.Metadata, private readonly options: RoutesConfig) { }
+  constructor(private readonly metadata: Tsoa.Metadata, private readonly options: RoutesConfig, tsconfigFile?: string) {
+    if (tsconfigFile) {
+      this.tsfmtConfig.tsconfigFile = tsconfigFile;
+    }
+  }
 
   public GenerateRoutes(middlewareTemplate: string, pathTransformer: (path: string) => string) {
     const fileName = `${this.options.routesDir}/routes.ts`;

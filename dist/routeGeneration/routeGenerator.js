@@ -7,12 +7,13 @@ var path = require("path");
 var tsfmt = require("typescript-formatter");
 var pathUtils_1 = require("./../utils/pathUtils");
 var RouteGenerator = /** @class */ (function () {
-    function RouteGenerator(metadata, options) {
+    function RouteGenerator(metadata, options, tsconfigFile) {
         this.metadata = metadata;
         this.options = options;
         this.tsfmtConfig = {
             editorconfig: true,
             replace: true,
+            tsconfigFile: "",
             tsconfig: {
                 newLine: 'LF',
             },
@@ -21,6 +22,9 @@ var RouteGenerator = /** @class */ (function () {
             verify: true,
             vscode: true,
         };
+        if (tsconfigFile) {
+            this.tsfmtConfig.tsconfigFile = tsconfigFile;
+        }
     }
     RouteGenerator.prototype.GenerateRoutes = function (middlewareTemplate, pathTransformer) {
         var _this = this;

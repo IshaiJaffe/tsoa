@@ -175,7 +175,7 @@ function routeGenerator(args) {
         var compilerOptions = validateCompilerOptions(config.compilerOptions);
         var routesConfig = validateRoutesConfig(config.routes);
         var metadata = new metadataGenerator_1.MetadataGenerator(routesConfig.entryFile, compilerOptions, config.ignore, config.typePaths).Generate();
-        var routeGenerator_2 = new routeGenerator_1.RouteGenerator(metadata, routesConfig);
+        var routeGenerator_2 = new routeGenerator_1.RouteGenerator(metadata, routesConfig, config.tsconfigFile);
         var pathTransformer = void 0;
         var template = void 0;
         pathTransformer = function (path) { return path.replace(/{/g, ':').replace(/}/g, ''); };
