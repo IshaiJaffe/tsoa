@@ -113,7 +113,11 @@ export function RegisterRoutes(app: any) {
                 }
 
                 if (data) {
-                    response.status(statusCode || 200).json(data);
+                    if (typeof(data) === "string") {
+                      response.status(statusCode || 200).send(data);
+                    } else {
+                      response.status(statusCode || 200).json(data);
+                    }
                 } else {
                     response.status(statusCode || 204).end();
                 }
